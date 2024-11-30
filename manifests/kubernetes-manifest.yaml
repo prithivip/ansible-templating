@@ -1,0 +1,9 @@
+---
+- hosts: localhost
+  vars_files:
+    - /root/ansible/playbook/production_env_var
+  tasks:
+    - name: Generate Kubernetes Deployment Manifest using Template
+      template: 
+        src: /root/ansible/playbook/templates/deployment.yaml.j2
+        dest: /root/ansible/playbook/manifests/deployment.yaml
